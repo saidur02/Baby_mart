@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100 ">
+        <div className="navbar text-white bg-slate-700 mb-8 mt-4 rounded-lg ">
             <div className="navbar-start">
                 <Link to='/' className="btn btn-ghost normal-case text-3xl">Baby Mart</Link>
             </div>
