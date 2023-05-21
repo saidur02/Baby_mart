@@ -27,7 +27,6 @@ const AddToys = () => {
         category,
         price,rating,quantity,details
        }
-       console.log(addToy)
        fetch('http://localhost:5000/addtoy',{
         method:'POST',
         headers:{
