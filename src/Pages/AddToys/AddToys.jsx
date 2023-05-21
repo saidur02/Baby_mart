@@ -27,17 +27,17 @@ const AddToys = () => {
         category,
         price,rating,quantity,details
        }
-    //    fetch('http://localhost:5000/addtoy',{
-    //     method:'POST',
-    //     headers:{
-    //         'content-type':'application/json'
-    //     },
-    //     body:JSON.stringify(addToy)
-    //    })
-    //    .then(res =>res.json())
-    //    .then(data => {
-    //     console.log(data)
-    //    })
+       fetch('http://localhost:5000/addtoy',{
+        method:'POST',
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(addToy)
+       })
+       .then(res =>res.json())
+       .then(data => {
+        console.log(data)
+       })
     }
 
 

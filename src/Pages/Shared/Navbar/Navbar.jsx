@@ -22,7 +22,8 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex text-xl m-3">
                 <Link to='/' className="m-3 " >Home</Link>
                 <Link to='/alltoy' className="m-3 " >All Toys</Link>
-                <Link to='/mytoy' className="m-3 " >My Toys</Link>
+
+               { user ?.email?<Link to='/mytoy' className="m-3 " >My Toys</Link>:<></>}
                 <Link to='/addtoys' className="m-3 " >Add A Toy</Link>
                 <Link to='/blogs' className="m-3 " >Blogs</Link>
                
