@@ -29,7 +29,7 @@ const Navbar = () => {
                
             </div>
             <div className="navbar-end">
-            {user ?. email ? <Link onClick={handleLogOut} to='/logout' className="m-3 " >Log Out</Link>:<Link to='/login' className="m-3 " >Login</Link>
+            {user ?. email ? <Link onClick={handleLogOut} to='/login' className="m-3 " >Log Out</Link>:<Link to='/login' className="m-3 " >Login</Link>
             }
            
             </div>
