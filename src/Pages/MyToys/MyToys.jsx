@@ -60,7 +60,7 @@ const MyToys = () => {
 
     return (
         <div>
-            <h1>My Toy : {myToy.length}</h1>
+           
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                    
