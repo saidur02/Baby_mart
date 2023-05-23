@@ -13,7 +13,9 @@ import img10 from  '../../../assets/img/11.jpg'
 
 const PhotoGallery = () => {
     return (
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+        <>
+        <h2 className='mt-28 text-5xl text-center mb-8 font-bold bg-slate-400 p-4 rounded-lg'>Here Some Picture From Our Gallery</h2>
+        <div className='grid grid-cols-1 md:grid-cols-6 gap-6'>
             <img src={img1} alt="" />
             <img src={img2} alt="" />
             <img src={img3} alt="" />
@@ -25,6 +27,8 @@ const PhotoGallery = () => {
             <img src={img9} alt="" />
             <img src={img10} alt="" />
         </div>
+        
+        </>
     );
 };
 

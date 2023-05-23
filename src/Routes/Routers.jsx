@@ -8,6 +8,9 @@ import NotFoundPage from "../Pages/NotFoundPage/NotFound";
 import MyToys from "../Pages/MyToys/MyToys";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs/Blogs";
+import AllToys from "../Pages/AllToys/AllToys";
+import UpdatedInfo from "../Pages/MyToys/UpdatedInfo";
+import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 
 
 const router = createBrowserRouter([
@@ -28,11 +31,24 @@ const router = createBrowserRouter([
             element:<Registration></Registration>
         },
         {
+            path:'alltoy',
+            element:<AllToys></AllToys>
+        },
+        {
             path:'/addtoys',
-            element:<AddToys></AddToys>
-        },{
+            element:<PrivateRoute><AddToys></AddToys></PrivateRoute>
+        },
+        {
             path:'mytoy',
             element:<PrivateRoute><MyToys></MyToys></PrivateRoute>
+        },
+        {
+            path:'update',
+            element:<UpdatedInfo></UpdatedInfo>
+        },
+        {
+            path:'viewdetails',
+            element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>
         },
         {
             path:'blogs',

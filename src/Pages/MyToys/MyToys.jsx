@@ -8,27 +8,69 @@ const MyToys = () => {
 
     const [myToy, setMyToy] = useState([])
 
-    const url = `https://baby-server.vercel.app/addtoy?email=${user?.email}`
+    const url = ` https://baby-server.vercel.app/addtoy?email=${user?.email}`
 
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => setMyToy(data))
     }, [])
+    const handleDelate = id =>{
+        const proceed =  confirm('Are You Sure')
+        if(proceed){
+            fetch(` https://baby-server.vercel.app/addtoy/${id}`,{
+                method:'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.deletedCount > 0 ){
+                    alert('Deleted Successfully')
+                    const remaining = myToy.filter(toy => toy._id !==id)
+                    setMyToy(remaining)
+                }
+            }
+                
+            
+            )
+        }
+    }
+
+    const handleUpdate = id => {
+        fetch(`https://baby-server.vercel.app/addtoy/${id}`,{
+                method:'PUT',
+                headers:{
+                   'content-type': 'application/json'
+                },
+                body: JSON.stringify({status:'Updated'})
+            })
+            .then(res => res.json())
+            .then(data =>{
+                console.log(data);
+                if(data.modifiedCount > 0){
+                    const remaining = myToy.filter(toy =>toy._id !== id);
+                    const updateToy = myToy.find(toy => toy._id === id);
+                    updateToy.status='Updated'
+                    const newToy =[updateToy, ...remaining];
+                    setMyToy(newToy)
+                }
+            })
+    }
+
+
     return (
         <div>
             <h1>My Toy : {myToy.length}</h1>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
-                    {/* head */}
+                   
                     <thead>
                         <tr>
                             <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
+                                Delete Button
                             </th>
-                            <th>Picture      Category</th>
+                            <th>Picture</th>
+                            <th>Category</th>
                             <th>Seller Name</th>
                             <th>Price</th>
                             <th></th>
@@ -38,8 +80,10 @@ const MyToys = () => {
                        
                         {
                             myToy.map(toy=><MyToyTable
-                            key={user._id}
+                            key={toy._id}
                             toy={toy}
+                            handleDelate={handleDelate}
+                            handleUpdate={handleUpdate}
                             ></MyToyTable>)
                         }
                         
