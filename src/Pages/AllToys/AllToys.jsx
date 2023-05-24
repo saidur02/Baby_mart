@@ -6,7 +6,7 @@ const AllToys = () => {
     const [search, setSearch] = useState('')
 
 
-    const url = `https://baby-server.vercel.app/addtoy`
+    const url = `https://baby-server.vercel.app/alltoy`
 
     useEffect(() => {
         fetch(url)

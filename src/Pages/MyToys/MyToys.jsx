@@ -18,7 +18,7 @@ const MyToys = () => {
     const handleDelate = id =>{
         const proceed =  confirm('Are You Sure')
         if(proceed){
-            fetch(`https://baby-server.vercel.app/addtoy/${id}`,{
+            fetch(`https://baby-server.vercel.app/alltoy/${id}`,{
                 method:'DELETE'
             })
             .then(res => res.json())
