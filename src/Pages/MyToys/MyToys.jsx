@@ -8,7 +8,7 @@ const MyToys = () => {
 
     const [myToy, setMyToy] = useState([])
 
-    const url = ` https://baby-server.vercel.app/addtoy?email=${user?.email}`
+    const url = `https://baby-server.vercel.app/alltoy`
 
     useEffect(() => {
         fetch(url)
@@ -18,7 +18,7 @@ const MyToys = () => {
     const handleDelate = id =>{
         const proceed =  confirm('Are You Sure')
         if(proceed){
-            fetch(` https://baby-server.vercel.app/addtoy/${id}`,{
+            fetch(`https://baby-server.vercel.app/addtoy/${id}`,{
                 method:'DELETE'
             })
             .then(res => res.json())
