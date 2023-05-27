@@ -13,7 +13,7 @@ const AllToys = () => {
             .then(res => res.json())
             .then(data => setAllToy(data))
     }, [])
-
+console.log(allToy)
     const handleSearch = () => {
         fetch(`https://baby-server.vercel.app/toysearch${search}`)
         .then(res => res.json()
